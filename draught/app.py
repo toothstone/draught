@@ -25,7 +25,6 @@ from draught.utils.database_utils import query_trafficdata, \
     query_gauge_data, user_id_from_ip
 from draught.utils.exceptions import UserNotFound, PasswordInvalid, \
     ForeignIPAccessError
-from draught.utils.graph_utils import render_traffic_chart
 from draught.utils.ldap_utils import User, authenticate
 
 from werkzeug.routing import IntegerConverter as BaseIntegerConverter
@@ -76,7 +75,6 @@ def init_app():
         traffic=query_gauge_data,
         get_locale=get_locale,
         possible_locales=possible_locales,
-        chart=render_traffic_chart,
     )
 
 
@@ -203,32 +201,3 @@ def index():
 #     logout_user()
 #     return redirect(url_for("index"))
 #
-
-@app.route("/usertraffic")
-def usertraffic():
-    """For anonymous users with a valid IP
-    """
-    try:
-        ip = request.remote_addr
-        trafficdata = query_trafficdata(ip)
-
-        if current_user.is_authenticated():
-            if current_user.userid is user_id_from_ip(ip):
-                flash(gettext(u"Ein anderer Nutzer als der für diesen Anschluss"
-                              u" Eingetragene ist angemeldet!"), "warning")
-                flash(gettext("Hier werden die Trafficdaten "
-                              "dieses Anschlusses angezeigt"), "info")
-    except ForeignIPAccessError:
-        flash(gettext(u"Deine IP gehört nicht zum Wohnheim!"), "error")
-
-        if current_user.is_authenticated():
-            flash(gettext(u"Da du angemeldet bist, kannst du deinen Traffic "
-                          u"hier in der Usersuite einsehen."), "info")
-            return redirect(url_for('usersuite.usersuite'))
-        else:
-            flash(gettext(u"Um deinen Traffic von außerhalb einsehen zu können,"
-                          u" musst du dich anmelden."), "info")
-            return redirect(url_for('login'))
-
-    # todo test if the template works if called from this position
-    return render_template("usertraffic.html", usertraffic=trafficdata)

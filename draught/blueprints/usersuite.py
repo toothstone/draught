@@ -14,7 +14,6 @@ from draught.utils import calculate_userid_checksum
 from draught.utils.database_utils import query_trafficdata, query_userinfo, \
     update_macaddress, drop_mysql_userdatabase, create_mysql_userdatabase, \
     change_mysql_userdatabase_password, user_has_mysql_db
-from draught.utils.graph_utils import generate_traffic_chart
 from draught.utils.ldap_utils import change_password, change_email, \
     authenticate
 from draught.utils.mail_utils import send_mail
