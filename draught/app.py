@@ -18,8 +18,9 @@ from babel import Locale
 from .babel import babel, possible_locales
 from draught.blueprints.news import bp_news
 from draught.flatpages import cf_pages
-from draught.blueprints import bp_usersuite, bp_pages, bp_documents, \
+from draught.blueprints import bp_pages, bp_documents, \
     bp_features
+#from draught.blueprints import bp_usersuite
 from draught.forms import flash_formerrors, LoginForm
 from draught.utils.database_utils import query_trafficdata, \
     query_gauge_data, user_id_from_ip
@@ -51,7 +52,7 @@ def init_app():
     cf_pages.init_app(app)
     # Blueprints
     app.register_blueprint(bp_features)
-    app.register_blueprint(bp_usersuite)
+#    app.register_blueprint(bp_usersuite)
     app.register_blueprint(bp_pages)
     app.register_blueprint(bp_documents)
     app.register_blueprint(bp_news)
