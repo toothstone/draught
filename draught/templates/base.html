@@ -111,24 +111,6 @@
 		<div class="col-sm-3 col-sm-push-9">
 			<div class="row">
 				<div class="col-xs-6 col-sm-12">
-					<a id="traffic_gauge_link" href="{{ url_for('usertraffic') }}"><div id="trafficgauge"></div>
-                        <div class="text-center"><small>({{ _("Für Details klicken") }})</small></div>
-					</a><br>
-
-                    <div class="row">
-                    {% if traffic().error == "foreign_ip" %}
-                        <div class="text-danger text-center">
-                            {{ _("Diese IP gehört nicht zum Netzwerk der Sektion") }}!
-                        </div>
-                    {% else %}
-                        <div class="text-danger text-center">
-                            {{ _("Es gab einen Fehler bei der Trafficabfrage") }}!
-                        </div>
-                    {% endif %}
-                    </div>
-				</div>
-				
-				<div class="col-xs-6 col-sm-12">
 					<h2>{{ _("Kontakt") }} </h2>
 					
 					<div>
@@ -193,30 +175,7 @@
 	<script type="text/javascript" src="{{ url_for("static", filename="js/jquery-2.1.1.min.js") }}"></script>
 	<script type="text/javascript" src="{{ url_for("static", filename="js/bootstrap.min.js") }}"></script>
 	<script type="text/javascript" src="{{ url_for("static", filename="js/raphael.2.1.0.min.js") }}"></script>
-	<script type="text/javascript" src="{{ url_for("static", filename="js/justgage.1.0.1.js") }}"></script>
 	<script type="text/javascript" src="{{ url_for("static", filename="js/agdsn.js") }}"></script>
-    {% if not traffic().error %}
-        {% set gauge_val = (traffic.exhausted/1024)|round(2) %}
-        {% set gauge_max = (traffic.credit/1024)|round(2) %}
-        {% set gauge_label = "GiB" %}
-    {% else %}
-        {% set gauge_val = "–" %}
-        {% set gauge_max = 0 %}
-        {% set gauge_label = "" %}
-    {% endif %}
-    <script type="text/javascript">
-        $(function(){
-            new JustGage({
-                id: "trafficgauge",
-                value: "{{ gauge_val }}",
-                min: 0,
-				relativeGaugeSize: true,
-                max: {{ gauge_max }},
-                title: "{{ _("Verbrauchter Traffic") }}",
-                label: "{{ gauge_label }}"
-            });
-        });
-    </script>
     {% block custom_script %}{% endblock %}
 </body>
 </html>
