@@ -169,40 +169,40 @@ def set_language(lang='de'):
 def index():
     return redirect(url_for("news.display"))
 
-
-@app.route("/login", methods=['GET', 'POST'])
-def login():
-    """Login page for users
-    """
-    form = LoginForm()
-
-    if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
-
-        try:
-            user = authenticate(username, password)
-        except UserNotFound:
-            flash(gettext(u"Nutzer nicht gefunden!"), "error")
-        except PasswordInvalid:
-            flash(gettext(u"Passwort war inkorrekt!"), "error")
-        else:
-            if isinstance(user, User):
-                login_user(user)
-    elif form.is_submitted():
-        flash_formerrors(form)
-
-    if current_user.is_authenticated():
-        return redirect(url_for('usersuite.usersuite'))
-
-    return render_template('login.html', form=form)
-
-
-@app.route("/logout")
-def logout():
-    logout_user()
-    return redirect(url_for("index"))
-
+#
+# @app.route("/login", methods=['GET', 'POST'])
+# def login():
+#     """Login page for users
+#     """
+#     form = LoginForm()
+#
+#     if form.validate_on_submit():
+#         username = form.username.data
+#         password = form.password.data
+#
+#         try:
+#             user = authenticate(username, password)
+#         except UserNotFound:
+#             flash(gettext(u"Nutzer nicht gefunden!"), "error")
+#         except PasswordInvalid:
+#             flash(gettext(u"Passwort war inkorrekt!"), "error")
+#         else:
+#             if isinstance(user, User):
+#                 login_user(user)
+#     elif form.is_submitted():
+#         flash_formerrors(form)
+#
+#     if current_user.is_authenticated():
+#         return redirect(url_for('usersuite.usersuite'))
+#
+#     return render_template('login.html', form=form)
+#
+#
+# @app.route("/logout")
+# def logout():
+#     logout_user()
+#     return redirect(url_for("index"))
+#
 
 @app.route("/usertraffic")
 def usertraffic():
