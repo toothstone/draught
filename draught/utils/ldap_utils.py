@@ -8,7 +8,7 @@ Everything used for authentication in sipa (Usersuite..).
 import ldap
 from ldap.ldapobject import SimpleLDAPObject
 
-from sipa.config import LDAP_HOST, LDAP_PORT, LDAP_SEARCH_BASE
+from draught.config import LDAP_HOST, LDAP_PORT, LDAP_SEARCH_BASE
 from .exceptions import UserNotFound, PasswordInvalid, LDAPConnectionError
 
 

@@ -7,7 +7,7 @@ Blueprint for the flatpages
 
 from flask import Blueprint, render_template
 
-from sipa.flatpages import cf_pages
+from draught.flatpages import cf_pages
 
 
 bp_pages = Blueprint('pages', __name__, url_prefix='/pages')

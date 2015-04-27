@@ -1,5 +1,5 @@
 import os.path
-from sipa.app import app, init_app
+from draught.app import app, init_app
 
 if __name__ == "__main__":
     app.config.from_pyfile('settings.py')

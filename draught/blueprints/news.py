@@ -6,7 +6,7 @@ Blueprint providing features regarding the news entries.
 """
 
 from flask import Blueprint, render_template, url_for, redirect
-from sipa.flatpages import cf_pages
+from draught.flatpages import cf_pages
 
 bp_news = Blueprint('news', __name__, url_prefix='/news')
 

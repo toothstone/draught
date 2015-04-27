@@ -1,23 +1,11 @@
-SIPA - Supreme Information Providing Application
+draught - come and get some beer
 ==================================
 
-
-Name
-----------------------------------
-Just as SIPA stands for a ball over the net game[1], the lesser known **s**upreme **i**nformation **p**roviding **a**pplication
-does just the same -- sending packets over the internet.
-
-This project is a flask-based webserver developed by members of the student network Dresden.
-
-Usage / Forking
-----------------------------------
-As the project is
-* not modularized in its current state,
-* strongly depends on our infrastructure
-* has been designed for our purposes (e.g. view each user's specific data)
-it is not suitable for any custom use.
-
-Note that **this will change soon**, because we plan to use sipa elsewhere.
+This project is a flask-based webserver originally developed by members of the 
+student network Dresden [1] (project SIPA), adapted for ZAPF DD 2016 by the 
+ZAPF-IT
+ DD 
+team.
 
 
 Libraries required to run dev server
@@ -84,4 +72,4 @@ Another possibility is to include hyperlinks, which only have a metadata section
     link: http://http://www.awesome-page.com/
     rank: 1
 
-[1] https://en.wikipedia.org/wiki/Sipa
+[1] agdsn.de

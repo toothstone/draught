@@ -16,17 +16,17 @@ from ldap import SERVER_DOWN
 
 from babel import Locale
 from .babel import babel, possible_locales
-from sipa.blueprints.news import bp_news
-from sipa.flatpages import cf_pages
-from sipa.blueprints import bp_usersuite, bp_pages, bp_documents, \
+from draught.blueprints.news import bp_news
+from draught.flatpages import cf_pages
+from draught.blueprints import bp_usersuite, bp_pages, bp_documents, \
     bp_features
-from sipa.forms import flash_formerrors, LoginForm
-from sipa.utils.database_utils import query_trafficdata, \
+from draught.forms import flash_formerrors, LoginForm
+from draught.utils.database_utils import query_trafficdata, \
     query_gauge_data, user_id_from_ip
-from sipa.utils.exceptions import UserNotFound, PasswordInvalid, \
+from draught.utils.exceptions import UserNotFound, PasswordInvalid, \
     ForeignIPAccessError
-from sipa.utils.graph_utils import render_traffic_chart
-from sipa.utils.ldap_utils import User, authenticate
+from draught.utils.graph_utils import render_traffic_chart
+from draught.utils.ldap_utils import User, authenticate
 
 from werkzeug.routing import IntegerConverter as BaseIntegerConverter
 
@@ -39,7 +39,7 @@ class IntegerConverter(BaseIntegerConverter):
     regex = r'-?\d+'
 
 
-app = Flask('sipa')
+app = Flask('draught')
 
 app.url_map.converters['int'] = IntegerConverter
 login_manager = LoginManager()

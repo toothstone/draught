@@ -8,17 +8,17 @@ from flask import Blueprint, render_template, url_for, redirect, flash
 from flask_babel import gettext
 from flask_login import login_required, current_user
 
-from sipa.forms import ContactForm, ChangeMACForm, ChangeMailForm, \
+from draught.forms import ContactForm, ChangeMACForm, ChangeMailForm, \
     ChangePasswordForm, flash_formerrors, HostingForm, DeleteMailForm
-from sipa.utils import calculate_userid_checksum
-from sipa.utils.database_utils import query_trafficdata, query_userinfo, \
+from draught.utils import calculate_userid_checksum
+from draught.utils.database_utils import query_trafficdata, query_userinfo, \
     update_macaddress, drop_mysql_userdatabase, create_mysql_userdatabase, \
     change_mysql_userdatabase_password, user_has_mysql_db
-from sipa.utils.graph_utils import generate_traffic_chart
-from sipa.utils.ldap_utils import change_password, change_email, \
+from draught.utils.graph_utils import generate_traffic_chart
+from draught.utils.ldap_utils import change_password, change_email, \
     authenticate
-from sipa.utils.mail_utils import send_mail
-from sipa.utils.exceptions import DBQueryEmpty, LDAPConnectionError, \
+from draught.utils.mail_utils import send_mail
+from draught.utils.exceptions import DBQueryEmpty, LDAPConnectionError, \
     PasswordInvalid, UserNotFound
 
 

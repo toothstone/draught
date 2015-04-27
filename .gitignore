@@ -1,5 +1,4 @@
 venv
-content
 documents
 *.pyc
 *.pyo
@@ -7,5 +6,4 @@ documents
 .idea
 
 messages.pot
-
-sipa/config.py
+draught/config_local.pd

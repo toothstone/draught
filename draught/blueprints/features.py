@@ -8,8 +8,8 @@ and does not fit into any other blueprint such as “documents”.
 
 from flask import Blueprint
 from flask.templating import render_template
-from sipa.config import busstops
-from sipa.utils import get_bustimes
+from draught.config import busstops
+from draught.utils import get_bustimes
 
 bp_features = Blueprint('features', __name__)
 
