@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """Blueprint for feature components such as bustimes etc.
-Basically, this is everything that is to specific to appear in the app.py
+Basically, this is everything that is to specific to appear in the views.py
 and does not fit into any other blueprint such as “documents”.
 """
 
@@ -28,7 +28,7 @@ def bustimes(stopname=None):
         data[stopname] = get_bustimes(stopname)
     else:
         # General output page
-        for stop in busstops:
+        for stop in app.config['busstops']:
             data[stop] = get_bustimes(stop, 4)
 
     return render_template('bustimes.html', times=data, stopname=stopname)

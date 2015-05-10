@@ -10,31 +10,28 @@ which is a file not tracked in git containing IPs, user names, passwords, etc.
 
 from flask.ext.babel import gettext
 
+SECRET_KEY = "development key!"
 FLASK_SECRET_KEY = "development key!"
+
+LOG_FILE = 'error.log'
+
+FLATPAGES_ROOT = ""
+FLATPAGES_EXTENSION = '.md'
+FLATPAGES_MARKDOWN_EXTENSIONS = [
+    'sane_lists',
+    'draught.utils.bootstraped_tables',
+    'nl2br',
+    'meta',
+    'attr_list'
+]
+
+LOGGING_CONFIG_LOCATION = "draught/default_log_config"
 
 # Mail configuration
 MAILSERVER_HOST = "127.0.0.1"
 MAILSERVER_PORT = 25
 
-# LDAP configuration
-LDAP_HOST = "127.0.0.1"
-LDAP_PORT = 1111
-LDAP_SEARCH_BASE = ""
-
-# MySQL configuration
-DB_ATLANTIS_HOST = "127.0.0.1"
-DB_ATLANTIS_USER = ""
-DB_ATLANTIS_PASSWORD = ""
-
-# MySQL Helios configuration
-DB_HELIOS_HOST = "127.0.0.1"
-DB_HELIOS_PORT = 1111
-DB_HELIOS_USER = ""
-DB_HELIOS_PASSWORD = ""
-
-SQL_TIMEOUT = 15
-
-weekdays = {
+WEEKDAYS = {
     '0': gettext('Sonntag'),
     '1': gettext('Montag'),
     '2': gettext('Dienstag'),
@@ -45,20 +42,15 @@ weekdays = {
 }
 
 # Languages
-languages = {
+LANGUAGES = {
     'de': 'Deutsch',
     'en': 'English'
 }
 
 # Bus & tram stops
-busstops = [
+BUSSTOPS = [
     "Zellescher Weg",
     "Strehlener Platz",
     "Weberplatz"
 ]
 
-# if local config file exists, load everything into local space.
-try:
-    from draught.config_local import *
-except ImportError:
-    print("No local config found. Using default values.")

@@ -7,8 +7,7 @@ Everything used for authentication in sipa (Usersuite..).
 
 import ldap
 from ldap.ldapobject import SimpleLDAPObject
-
-from draught.config import LDAP_HOST, LDAP_PORT, LDAP_SEARCH_BASE
+from draught import app
 from .exceptions import UserNotFound, PasswordInvalid, LDAPConnectionError
 
 
@@ -82,7 +81,9 @@ class LdapConnector(object):
             user = self.fetch_user(self.username)
             if not user:
                 raise UserNotFound
-            self.l = ldap.initialize("ldap://%s:%s" % (LDAP_HOST, LDAP_PORT))
+            self.l = ldap.initialize("ldap://%s:%s" % (
+                app.config['LDAP_HOST'],
+                app.config['LDAP_PORT']))
             self.l.protocol_version = ldap.VERSION3
 
             if self.password:
@@ -110,8 +111,9 @@ class LdapConnector(object):
         Returns a formatted dict with the LDAP dn, username and real name.
         If the username was not found, returns None.
         """
-        l = ldap.initialize("ldap://%s:%s" % (LDAP_HOST, LDAP_PORT))
-        user = l.search_s(LDAP_SEARCH_BASE,
+        l = ldap.initialize("ldap://%s:%s" % (app.config['LDAP_HOST'],
+                                              app.config['LDAP_PORT']))
+        user = l.search_s(app.config['LDAP_SEARCH_BASE'],
                           ldap.SCOPE_SUBTREE,
                           "(uid=%s)" % username,
                           ['uid', 'gecos', 'mail'])

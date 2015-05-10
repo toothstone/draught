@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from flask import flash
-from flask_babel import gettext, lazy_gettext
+from flask.ext.babel import gettext, lazy_gettext
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, SelectField, PasswordField, \
     HiddenField
 from wtforms.validators import Required, Email, MacAddress, ValidationError
-
 
 class ContactForm(Form):
     email = TextField(u"E-Mail", validators=[
@@ -15,10 +14,11 @@ class ContactForm(Form):
     subject = TextField(u"Betreff", validators=[
         Required(gettext(u"Betreff muss angegeben werden!"))])
     type = SelectField(u"Kategorie", choices=[
-        (u"frage", lazy_gettext(u"Allgemeine Frage an die Admins")),
-        (u"stoerung", lazy_gettext(u"Störungen im Wu-ZW-Netz")),
-        (u"finanzen", lazy_gettext(u"Finanzen (Beiträge, Gebühren)")),
-        (u"eigene-technik", lazy_gettext(u"Probleme mit eigener Technik"))
+        (u"frage", lazy_gettext(u"Allgemeine Frage an die Administratoren")),
+        (u"stoerung",
+         lazy_gettext(u"Störungen im Netzwerk Wundtstraße/Zellescher Weg")),
+        (u"finanzen", lazy_gettext(u"Finanzfragen (Beiträge, Gebühren)")),
+        (u"eigene-technik", lazy_gettext(u"Probleme mit privater Technik"))
     ])
     message = TextAreaField(u"Nachricht",
                             validators=[Required(gettext(u"Nachricht fehlt!"))])

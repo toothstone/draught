@@ -3,7 +3,9 @@ documents
 *.pyc
 *.pyo
 *~
+*.log
 .idea
 
 messages.pot
-draught/config_local.pd
+draught/config_local.py
+config.py
