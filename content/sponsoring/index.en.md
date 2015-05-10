@@ -1,2 +1,0 @@
-name: sponsors
-index: true

@@ -1,4 +1,4 @@
-title: Sponsoren gesucht
+title: Sponsoren
 author: Marius
 date: 2015-05-09
 time: 16:00
