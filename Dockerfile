@@ -18,21 +18,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip install uwsgi
 
-RUN addgroup --gid 9999 sipa && \
-	adduser --uid 9999 --gid 9999 --disabled-password --gecos "Application" sipa
+RUN addgroup --gid 9999 draught && \
+	adduser --uid 9999 --gid 9999 --disabled-password --gecos "Application" draught
 
-RUN mkdir /var/log/sipa && \
-    chown sipa:sipa /var/log/sipa
+RUN mkdir /var/log/draught && \
+    chown draught:draught /var/log/draught
 
-ADD . /home/sipa/sipa
+ADD . /home/draught/draught
 
-WORKDIR /home/sipa/sipa
-RUN chown -R sipa:sipa /home/sipa/sipa
+WORKDIR /home/draught/draught
+RUN chown -R draught:draught /home/draught/draught
 
 RUN pip install -r requirements.txt
 
 
 EXPOSE 5000
 
-USER sipa
-CMD ["/home/sipa/sipa/start.sh"]
+USER draught
+CMD ["/home/draught/draught/start.sh"]
