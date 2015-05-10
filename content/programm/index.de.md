@@ -1,2 +1,3 @@
-name: Location
+name: Programm
 index: false
+glyphicon: glyphicon-calendar
