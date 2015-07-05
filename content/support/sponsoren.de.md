@@ -1,10 +1,9 @@
-title: Sponsoren
+﻿title: Sponsoren
 author: Marius
 date: 2015-05-09
 time: 16:00
 type: default
 
-Geld ist das Schmiermittel der Gesellschaft. 
-So viel ehrenamtliche Arbeit wir auch in die Arbeit im FSR und im Orga-Team der ZaPF stecken, ohne Geld und Unterstützung kann die Tagung leider nicht stattfinden. Aus diesem Grund sind wir sehr dankbar für jegliche Unterstützung jeglicher Form. Wir freuen uns über finanzielle Hilfe, über Sachspenden, Leihgaben oder Rabatte und Vergünstigungen
+Wir als Verstalter können eine solche Tagung natürlich finanziell nicht allein stemmen und sind auf Unterstützung angewiesen, seien es Sach- oder Geldspenden, Leihgaben oder Rabatte. Wenn Sie als Sponsor oder Spender auftreten möchten, ist es natürlich möglich, z.B. in unserem Tagungsheft eine Werbefläche zu erhalten. Genauere Informationen darüber finden Sie bitte hier(Link fehlt noch). 
 
-Jeder der willens ist uns zu helfen, wird auf dieser Seite verewigt und kann sich unserer Dankbarkeit gewiss sein. Wer uns unterstützen will, kann sich gerne an unser Sponsoring-Team wenden: <sponsoring-zapf@mailbox.tu-dresden.de>
+Bei Rückfragen steht ihnen unser Sponsoring-Team natürlich gern zur Verfügung unter <sponsoring-zapf@mailbox.tu-dresden.de>.
